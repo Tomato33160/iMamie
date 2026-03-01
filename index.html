@@ -107,16 +107,17 @@
         let currentAudio = null;
 
         function playAudio(file) {
-            // Arrête le son en cours s'il y en a un
             if (currentAudio) { 
                 currentAudio.pause(); 
                 currentAudio.currentTime = 0; 
             }
-            // Lance le nouveau son
             currentAudio = new Audio(file);
+            
+            // BOOST DU VOLUME ICI
+            currentAudio.volume = 1.0; 
+            
             currentAudio.play().catch(e => {
                 console.error("Erreur lecture :", file, e);
-                alert("Erreur : Le fichier " + file + " est introuvable ou illisible.");
             });
         }
 
@@ -128,5 +129,4 @@
         checkTime();
     </script>
 </body>
-</html>
 </html>
